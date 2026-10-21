@@ -1,52 +1,100 @@
 # Customer Shopping Behavior Analysis
 
-A data analysis project on a retail dataset of 3,900 customer purchases. I cleaned the data with Python, loaded it into a SQL database, answered business questions with SQL, and summarised the results with charts.
+A data analysis project exploring 3,900 customer purchases to identify revenue trends, purchasing patterns, discount effectiveness, and customer behavior. The project uses Python for data cleaning and analysis, SQL for business queries, and Power BI for dashboard visualization.
 
-## Tools used
-Python (pandas, matplotlib), SQL (SQLite), Power BI (for the dashboard)
+## Tools Used
+- **Python:** pandas, matplotlib
+- **SQL:** SQLite
+- **Power BI:** Dashboard and data visualization
 
-## Folder structure
+## Project Structure
+
+```text
+customer-shopping-behavior-analysis/
+├── data/          # Raw and cleaned CSV files
+├── sql/           # SQL queries (Q1–Q10 and E1–E5)
+├── results/       # CSV outputs from SQL queries
+├── analysis.py    # Data cleaning, SQLite loading, queries, and charts
+├── requirements.txt
+└── README.md
 ```
-data/         raw and cleaned csv files
-sql/          queries.sql  (Q1-Q10 + my extra queries E1-E5)
-results/      output of every query as csv
-images/       charts
-analysis.py   cleaning, loading to SQLite, running queries, charts
-```
 
-## How to run
-```bash
-pip install -r requirements.txt
-python analysis.py
-```
-It creates a local `customer.db` file, so no database installation is needed.
+## How to Run
 
-## Data cleaning
-- Only `Review Rating` had missing values (37 rows). I filled them with the median rating of the same category.
-- Renamed columns to snake_case so they are easier to use in SQL.
-- Added `age_group` (age quartiles) and `purchase_frequency_days` (frequency text converted to days).
-- Dropped `promo_code_used` because it was exactly the same as `discount_applied`.
-- Checked that `customer_id` is unique and no nulls are left.
+1. Install the required Python packages:
 
-## What I found
-Total revenue is $233,081 from 3,900 orders, around $59.76 per order.
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-- **Gender:** male customers bring in about 68% of revenue ($157,890 vs $75,191).
-- **Category:** Clothing is the biggest ($104K), then Accessories ($74K), Footwear ($36K), Outerwear ($19K). Clothing and Accessories together are about 77% of revenue.
-- **Subscribers:** they do not spend more per order ($59.49 vs $59.87). Only 27% of customers are subscribed.
-- **Discounts:** about 43% of orders use a discount, but discounted orders are not bigger ($59.28 vs $60.13).
-- **Age:** revenue is split fairly evenly (24% to 27% per group).
-- **Segments:** 3,116 of 3,900 customers have more than 10 previous purchases, so the "Loyal" group is 80% of everyone. The thresholds probably need to be changed for this data.
-- **Shipping:** Express orders average $60.48 and Standard $58.46. The gap is small.
-- **Best rated items:** Gloves, Sandals, Boots, Hat, Skirt (about 3.8 average rating).
+2. Run the analysis:
 
-## Recommendations
-1. Look again at the discount strategy. Discounts are used a lot but do not increase spend per order, so targeted offers may work better.
-2. Make the subscription more valuable. Subscribers are not spending more right now.
-3. Run campaigns aimed at female customers, who bring in about a third of revenue.
-4. Focus stock and marketing on Clothing and Accessories.
+   ```bash
+   python analysis.py
+   ```
 
+The script creates a local `customer.db` SQLite database, so no separate database server is required.
 
-## Dashboard
-For the Power BI part I used `data/customer_cleaned.csv`.
+## Data Cleaning
+
+- Handled 37 missing review ratings by filling them with the median rating for the corresponding product category.
+- Renamed columns to snake_case for easier SQL querying.
+- Created `age_group` using age quartiles.
+- Converted purchase frequency descriptions into `purchase_frequency_days`.
+- Dropped `promo_code_used` because it duplicated `discount_applied`.
+- Checked customer ID uniqueness and verified that no null values remained.
+
+## Key Findings
+
+### Revenue Overview
+- **Total revenue:** $233,081 across 3,900 orders.
+- **Average order value:** Approximately $59.76.
+
+### Gender
+- Male customers generated approximately $157,890, or 68% of revenue.
+- Female customers generated approximately $75,191, or 32% of revenue.
+
+### Product Categories
+- Clothing: approximately $104K.
+- Accessories: approximately $74K.
+- Footwear: approximately $36K.
+- Outerwear: approximately $19K.
+
+Clothing and Accessories together contributed approximately 77% of total revenue.
+
+### Subscription Behavior
+- Approximately 27% of customers are subscribers.
+- Subscribers spent an average of $59.49 per order, compared with $59.87 for non-subscribers.
+
+### Discount Effectiveness
+- Approximately 43% of orders used a discount.
+- Discounted orders averaged $59.28, compared with $60.13 for orders without discounts.
+
+### Age Groups
+Revenue was distributed relatively evenly across age groups, with each group contributing approximately 24%–27%.
+
+### Customer Segments
+- 3,116 out of 3,900 customers had more than 10 previous purchases.
+- The current Loyal segment represents approximately 80% of customers, suggesting that the segmentation thresholds may need refinement.
+
+### Shipping Preferences
+- Express shipping average order value: $60.48.
+- Standard shipping average order value: $58.46.
+
+The difference is relatively small.
+
+### Highest-Rated Products
+Gloves, Sandals, Boots, Hats, and Skirts were among the highest-rated product categories or items, with average ratings around 3.8. Validate the exact grouping used in the SQL query before interpreting these as individual products.
+
+## Business Recommendations
+
+1. **Improve discount targeting:** Discounts are common, but discounted orders have slightly lower average values. Test targeted offers and evaluate their impact on revenue and profitability.
+2. **Strengthen subscription value:** Explore exclusive benefits and measure subscriber retention and spending over time.
+3. **Expand female customer engagement:** Test campaigns designed to increase engagement and revenue among female customers.
+4. **Prioritize key categories:** Use demand, margins, and inventory data to guide marketing and stock decisions for Clothing and Accessories.
+5. **Refine customer segmentation:** Adjust purchase-frequency thresholds so the Loyal segment better distinguishes customer behavior.
+
+## Power BI Dashboard
+
+The Power BI dashboard uses `data/customer_cleaned.csv` and provides a visual overview of customer purchasing behavior, revenue, product categories, and related business metrics.
 
