@@ -63,3 +63,4 @@ For the Power BI part I used `data/customer_cleaned.csv`.
 MIT. The original project is copyright Amlan Mohanty (see LICENSE).
 "# Customer-Behaviour-Analysis" 
 "# Customer-Behaviour-Analysis" 
+"# Customer_behaviour_analysis" 
