@@ -1,0 +1,7 @@
+customer_segment,subscription_status,customers,avg_spend
+Loyal,No,2247,59.6
+Loyal,Yes,869,59.38
+New,No,68,58.51
+New,Yes,15,58.27
+Returning,No,532,61.17
+Returning,Yes,169,60.18

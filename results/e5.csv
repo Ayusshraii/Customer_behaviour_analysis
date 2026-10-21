@@ -1,0 +1,7 @@
+payment_method,orders,pct_orders,revenue
+Credit Card,671,17.2,40310
+PayPal,677,17.4,40109
+Cash,670,17.2,40002
+Debit Card,636,16.3,38742
+Venmo,634,16.3,37374
+Bank Transfer,612,15.7,36544

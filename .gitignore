@@ -1,0 +1,4 @@
+customer.db
+__pycache__/
+.ipynb_checkpoints/
+run_log.txt
