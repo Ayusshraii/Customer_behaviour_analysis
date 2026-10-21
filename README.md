@@ -2,8 +2,6 @@
 
 A data analysis project on a retail dataset of 3,900 customer purchases. I cleaned the data with Python, loaded it into a SQL database, answered business questions with SQL, and summarised the results with charts.
 
-**Credit:** I followed the guided project by [Amlan Mohanty](https://github.com/amlanmohanty1/customer-trends-data-analysis-SQL-Python-PowerBI) (MIT license) to learn the workflow. The dataset and the first 10 SQL questions come from that project. My changes: I rewrote the pipeline as one script that runs on SQLite, added 5 extra SQL queries (E1 to E5), and wrote my own findings and recommendations.
-
 ## Tools used
 Python (pandas, matplotlib), SQL (SQLite), Power BI (for the dashboard)
 
@@ -48,19 +46,7 @@ Total revenue is $233,081 from 3,900 orders, around $59.76 per order.
 3. Run campaigns aimed at female customers, who bring in about a third of revenue.
 4. Focus stock and marketing on Clothing and Accessories.
 
-## Limitations
-- Spend is almost the same across all groups, so this looks like a practice dataset. The numbers are good for learning but not real business conclusions.
-- There is no date column, so I could not look at trends over time.
 
 ## Dashboard
 For the Power BI part I used `data/customer_cleaned.csv`.
-(Add a screenshot here after building it: `images/dashboard.png`)
 
-## What I learned
-(Write 2 or 3 lines in your own words, for example what was hardest, which SQL concept you learned, what you would do next.)
-
-## License
-MIT. The original project is copyright Amlan Mohanty (see LICENSE).
-"# Customer-Behaviour-Analysis" 
-"# Customer-Behaviour-Analysis" 
-"# Customer_behaviour_analysis" 
